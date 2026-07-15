@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Favorite Games - Piyachat Sutin</title>
+    <title>My Favorite Games & Songs - Piyachat Sutin</title>
     <!-- นำเข้าฟอนต์ Google Fonts เพื่อความสวยงามทันสมัย -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,6 @@
             overflow: hidden;
         }
 
-        /* เอฟเฟกต์แสงไฟนีออนด้านบนการ์ดโปรไฟล์ */
         .profile-card::before {
             content: '';
             position: absolute;
@@ -97,11 +96,11 @@
             font-weight: 300;
         }
 
-        /* Games List Section */
+        /* Section Titles */
         .section-title {
             font-family: 'Orbitron', 'Kanit', sans-serif;
             font-size: 2rem;
-            margin-bottom: 35px;
+            margin: 50px 0 35px 0;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -115,30 +114,31 @@
             text-shadow: 0 0 15px var(--accent-pink);
         }
 
-        .game-list {
+        .game-list, .song-list {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
 
-        .game-card {
+        /* Cards Shared Style */
+        .game-card, .song-card {
             background-color: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
             display: flex;
-            align-items: stretch; /* ให้ความสูงภาพและการ์ดเท่ากันพอดี */
+            align-items: stretch;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        .game-card:hover {
+        .game-card:hover, .song-card:hover {
             transform: translateY(-5px) scale(1.01);
             box-shadow: 0 15px 30px rgba(255, 42, 116, 0.15);
             border-color: rgba(255, 42, 116, 0.4);
         }
 
-        .game-rank {
+        .game-rank, .song-rank {
             font-family: 'Orbitron', sans-serif;
             font-size: 3rem;
             font-weight: 900;
@@ -152,12 +152,12 @@
             min-width: 60px;
         }
 
-        /* ขยายรูปภาพเกมให้มีขนาดใหญ่ขึ้นเด่นชัด */
+        /* Game Section Specific */
         .game-img {
             width: 160px;
             height: 160px;
             object-fit: cover;
-            flex-shrink: 0; /* ป้องกันไม่ให้รูปโดนบีบเบี้ยว */
+            flex-shrink: 0;
             border-right: 1px solid rgba(255, 42, 116, 0.1);
         }
 
@@ -174,7 +174,6 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: #ffffff;
-            letter-spacing: 0.5px;
         }
 
         .game-info p {
@@ -185,14 +184,76 @@
             font-weight: 300;
         }
 
+        /* Song Section Specific (Music Player Layout) */
+        .song-info {
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+            gap: 20px;
+        }
+
+        .song-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .song-title-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .song-artist {
+            font-size: 1rem;
+            color: var(--accent-pink);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .song-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 5px 0 0 0;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* ปุ่มกดฟังเพลงดีไซน์ Cyber Neon */
+        .play-btn {
+            font-family: 'Orbitron', 'Kanit', sans-serif;
+            background-color: transparent;
+            color: var(--accent-pink);
+            border: 2px solid var(--accent-pink);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 10px rgba(255, 42, 116, 0.1);
+            white-space: nowrap;
+        }
+
+        .play-btn:hover {
+            background-color: var(--accent-pink);
+            color: #ffffff;
+            box-shadow: 0 0 20px var(--accent-pink);
+            transform: scale(1.05);
+        }
+
         /* Responsive */
         @media (max-width: 700px) {
-            .game-card {
+            .game-card, .song-card {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
-            .game-rank {
+            .game-rank, .song-rank {
                 padding: 20px 0 10px 0;
                 width: 100%;
                 background-color: transparent;
@@ -205,6 +266,17 @@
             }
             .game-info {
                 padding: 20px;
+            }
+            .song-info {
+                flex-direction: column;
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .play-btn {
+                width: 80%;
+                text-align: center;
+                margin-top: 10px;
             }
         }
     </style>
@@ -220,11 +292,10 @@
             <p>ผมน่ะชอบเล่นเกมมากนะ และชอบฟังเพลงด้วยแต่ผมน่ะ.. ผมน่ะ!!!..</p>
         </section>
 
+        <!-- ================= SECTON: GAMES ================= -->
         <h2 class="section-title">My Top 5 <span>Games</span></h2>
 
-        <!-- รายการเกมอันดับ 1-5 -->
         <div class="game-list">
-            
             <!-- อันดับ 1: FNAF -->
             <div class="game-card">
                 <div class="game-rank">01</div>
@@ -274,8 +345,79 @@
                     <p>Undertale? เกมที่คนอวยกันจนนึกว่าเป็นสิ่งมหัศจรรย์ของโลก แต่พอไปเล่นจริงคืออิหยังวะมาก ภาพพิกเซลก็แตกยับเหมือนงานวาดลวก ๆ ยุคพระเจ้าเหา ดีไซน์ตัวละครก็ประหลาด ๆ โดยเฉพาะไอ้โครงกระดูกยืนยิ้มหน้าแห้งที่แฟนคลับกรีดร้องใส่กันจัง ไม่เห็นมีอะไรน่าจดจำ ระบบต่อสู้ก็น่าเบื่อชวนง่วงนอน บังคับให้เล่นเป็นคนดีมีศีลธรรมห้ามฆ่าใคร เกมเพลย์มีแค่นั่งขยับหัวใจหลบจุดโง่ ๆ ในกล่องแคบ ๆ เล่นแล้วอึดอัดชวนปวดประสาท เนื้อเรื่องที่ชมกันนักหนาก็ธรรมดามาก มีแต่พวกติ่งนั่นแหละที่มโนตีความให้มันดูฉลาดเกินจริง เพลงประกอบ 8-bit ก็หนวกหูจนอยากจะกดปิดเสียง เป็นเกมที่คะแนนอวยนำหน้าคุณภาพจริง ๆ เสียเวลาเล่นมาก</p>
                 </div>
             </div>
-
         </div>
+
+        <!-- ================= SECTION: SONGS ================= -->
+        <h2 class="section-title">My Top 5 <span>Songs</span></h2>
+
+        <div class="song-list">
+            <!-- เพลงอันดับ 1 -->
+            <div class="song-card">
+                <div class="song-rank">01</div>
+                <div class="song-info">
+                    <div class="song-details">
+                        <p class="song-title-text">ชื่อเพลงอันดับ 1</p>
+                        <p class="song-artist">ชื่อศิลปิน / แหล่งที่มา</p>
+                        <p class="song-desc">ใส่คำอธิบาย ความประทับใจ หรือเนื้อหาเกี่ยวกับเพลงนี้ได้เลยครับ...</p>
+                    </div>
+                    <!-- แทนที่เครื่องหมาย # ใน href=" " ด้วย URL ของเพลง เช่น ลิงก์ YouTube หรือ Spotify -->
+                    <a href="#" target="_blank" class="play-btn">LISTEN NOW</a>
+                </div>
+            </div>
+
+            <!-- เพลงอันดับ 2 -->
+            <div class="song-card">
+                <div class="song-rank">02</div>
+                <div class="song-info">
+                    <div class="song-details">
+                        <p class="song-title-text">ชื่อเพลงอันดับ 2</p>
+                        <p class="song-artist">ชื่อศิลปิน / แหล่งที่มา</p>
+                        <p class="song-desc">ใส่คำอธิบายเกี่ยวกับเพลงนี้ตรงนี้...</p>
+                    </div>
+                    <a href="#" target="_blank" class="play-btn">LISTEN NOW</a>
+                </div>
+            </div>
+
+            <!-- เพลงอันดับ 3 -->
+            <div class="song-card">
+                <div class="song-rank">03</div>
+                <div class="song-info">
+                    <div class="song-details">
+                        <p class="song-title-text">ชื่อเพลงอันดับ 3</p>
+                        <p class="song-artist">ชื่อศิลปิน / แหล่งที่มา</p>
+                        <p class="song-desc">ใส่คำอธิบายเกี่ยวกับเพลงนี้ตรงนี้...</p>
+                    </div>
+                    <a href="#" target="_blank" class="play-btn">LISTEN NOW</a>
+                </div>
+            </div>
+
+            <!-- เพลงอันดับ 4 -->
+            <div class="song-card">
+                <div class="song-rank">04</div>
+                <div class="song-info">
+                    <div class="song-details">
+                        <p class="song-title-text">ชื่อเพลงอันดับ 4</p>
+                        <p class="song-artist">ชื่อศิลปิน / แหล่งที่มา</p>
+                        <p class="song-desc">ใส่คำอธิบายเกี่ยวกับเพลงนี้ตรงนี้...</p>
+                    </div>
+                    <a href="#" target="_blank" class="play-btn">LISTEN NOW</a>
+                </div>
+            </div>
+
+            <!-- เพลงอันดับ 5 -->
+            <div class="song-card">
+                <div class="song-rank">05</div>
+                <div class="song-info">
+                    <div class="song-details">
+                        <p class="song-title-text">ชื่อเพลงอันดับ 5</p>
+                        <p class="song-artist">ชื่อศิลปิน / แหล่งที่มา</p>
+                        <p class="song-desc">ใส่คำอธิบายเกี่ยวกับเพลงนี้ตรงนี้...</p>
+                    </div>
+                    <a href="#" target="_blank" class="play-btn">LISTEN NOW</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
