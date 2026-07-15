@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Games</title>
+    <style>
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: #1e2235;
+            --accent-color: #ff4757;
+            --text-color: #ffffff;
+            --text-secondary: #a0aec0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Profile Section */
+        .profile-card {
+            background: linear-gradient(135deg, #1e2235 0%, #292d42 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .profile-card h1 {
+            margin: 10px 0 5px 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .profile-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Games List Section */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .game-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.15);
+            border-color: rgba(255, 71, 87, 0.3);
+        }
+
+        .game-rank {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            padding: 0 25px;
+            min-width: 40px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .game-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .game-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.4rem;
+            text-transform: capitalize;
+        }
+
+        .game-info p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .game-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .game-rank {
+                padding: 15px 0 0 0;
+            }
+            .game-img {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- ส่วนข้อมูลส่วนตัว (กรอกชื่อและคำอธิบายตรงนี้ได้เลย) -->
+        <section class="profile-card">
+            <img src="me.png" alt="Profile Picture" class="profile-img">
+            <h1>[ ใส่ชื่อของคุณตรงนี้ ]</h1>
+            <p>[ ใส่คำอธิบายเกี่ยวกับตัวเองสั้น ๆ หรือคำคมที่ชอบตรงนี้ได้เลยครับ ]</p>
+        </section>
+
+        <h2 class="section-title">Top 5 Favorite Games</h2>
+
+        <!-- ส่วนของอันดับเกม (กรอกคำอธิบายในแท็ก <p> ได้เลย) -->
+        <div class="game-list">
+            
+            <!-- อันดับ 1: FNAF -->
+            <div class="game-card">
+                <div class="game-rank">1</div>
+                <img src="FNaF1.jpg" alt="FNAF" class="game-img">
+                <div class="game-info">
+                    <h3>Five Nights at Freddy's</h3>
+                    <p>ใส่คำอธิบายเกี่ยวกับเกม FNAF ของคุณตรงนี้...</p>
+                </div>
+            </div>
+
+            <!-- อันดับ 2: Minecraft -->
+            <div class="game-card">
+                <div class="game-rank">2</div>
+                <img src="minecraft.jpg" alt="Minecraft" class="game-img">
+                <div class="game-info">
+                    <h3>Minecraft</h3>
+                    <p>ใส่คำอธิบายเกี่ยวกับเกม Minecraft ของคุณตรงนี้...</p>
+                </div>
+            </div>
+
+            <!-- อันดับ 3: Roblox -->
+            <div class="game-card">
+                <div class="game-rank">3</div>
+                <img src="roblox.jpg" alt="Roblox" class="game-img">
+                <div class="game-info">
+                    <h3>Roblox</h3>
+                    <p>ใส่คำอธิบายเกี่ยวกับเกม Roblox ของคุณตรงนี้...</p>
+                </div>
+            </div>
+
+            <!-- อันดับ 4: Pokemon -->
+            <div class="game-card">
+                <div class="game-rank">4</div>
+                <img src="pokemon.jpg" alt="Pokemon" class="game-img">
+                <div class="game-info">
+                    <h3>Pokémon</h3>
+                    <p>ใส่คำอธิบายเกี่ยวกับเกม Pokémon ของคุณตรงนี้...</p>
+                </div>
+            </div>
+
+            <!-- อันดับ 5: Undertale -->
+            <div class="game-card">
+                <div class="game-rank">5</div>
+                <img src="undertale.jpg" alt="Undertale" class="game-img">
+                <div class="game-info">
+                    <h3>Undertale</h3>
+                    <p>ใส่คำอธิบายเกี่ยวกับเกม Undertale ของคุณตรงนี้...</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
